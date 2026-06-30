@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vista Financial Group</title>
+    <meta name="description" content="A trusted loan platform for all your loan needs." />
+    <link rel="icon" href="assets/vista-company-logo.jpeg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Vista Financial Group home">
+        <img src="assets/vista-company-logo.jpeg" alt="Vista Financial Group logo" />
+        <span>
+          <strong>Vista Financial Group</strong>
+          <small>Your Trust, Our Expertise</small>
+        </span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#emi-calculator">EMI Calculator</a>
+        <a href="#quick-loan">Quick Loan</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-button" type="button" aria-expanded="false">
+            Products <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#products" data-loan-link="Personal Loan">Personal Loan</a>
+            <a href="#products" data-loan-link="Home Loan">Home Loan</a>
+            <a href="#products" data-loan-link="Business Loan">Business Loan</a>
+            <a href="#products" data-loan-link="Education Loan">Education Loan</a>
+            <a href="#products" data-loan-link="Car Loan">Car Loan</a>
+            <a href="#products" data-loan-link="Gold Loan">Gold Loan</a>
+          </div>
+        </div>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Vista Financial Group</p>
+          <h1>Smart loan solutions for people and businesses.</h1>
+          <p>
+            Compare trusted financial options, get quick quotations, and move from
+            application to approval with a team that keeps the process simple.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#quick-loan">Apply Now</a>
+            <a class="btn secondary" href="#products">Explore Loans</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Loan highlights">
+          <img src="assets/vista-company-logo.jpeg" alt="Vista Financial Group logo" />
+          <div class="approval-card">
+            <span>Fast approvals</span>
+            <strong>Within 24 hours</strong>
+          </div>
+          <div class="rate-card">
+            <span>Interest rates</span>
+            <strong>From 8.5%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="emi-section" id="emi-calculator" aria-labelledby="emi-title">
+        <div class="emi-shell">
+          <div class="emi-copy">
+            <p class="eyebrow">EMI Calculator</p>
+            <h2 id="emi-title">Plan your monthly loan payment in seconds.</h2>
+            <p>
+              Adjust the amount, interest rate, and tenure to estimate your monthly EMI,
+              total interest, and total payment before you apply.
+            </p>
+          </div>
+
+          <div class="emi-calculator" aria-label="Loan EMI calculator">
+            <div class="emi-controls">
+              <label class="emi-field" for="loanAmount">
+                <span>Loan Amount</span>
+                <div class="emi-input">
+                  <span>₹</span>
+                  <input id="loanAmount" type="number" min="50000" max="10000000" step="10000" value="1000000" inputmode="numeric" />
+                </div>
+                <input id="loanAmountRange" type="range" min="50000" max="10000000" step="10000" value="1000000" />
+              </label>
+
+              <label class="emi-field" for="interestRate">
+                <span>Interest Rate</span>
+                <div class="emi-input">
+                  <input id="interestRate" type="number" min="1" max="30" step="0.1" value="8.5" inputmode="decimal" />
+                  <span>%</span>
+                </div>
+                <input id="interestRateRange" type="range" min="1" max="30" step="0.1" value="8.5" />
+              </label>
+
+              <label class="emi-field" for="loanTenure">
+                <span>Loan Tenure</span>
+                <div class="emi-input">
+                  <input id="loanTenure" type="number" min="1" max="30" step="1" value="5" inputmode="numeric" />
+                  <span>Years</span>
+                </div>
+                <input id="loanTenureRange" type="range" min="1" max="30" step="1" value="5" />
+              </label>
+            </div>
+
+            <div class="emi-results" aria-live="polite">
+              <div class="emi-main-result">
+                <span>Monthly EMI</span>
+                <strong id="monthlyEmi">₹0</strong>
+              </div>
+              <div class="emi-result-grid">
+                <div>
+                  <span>Principal Amount</span>
+                  <strong id="principalAmount">₹0</strong>
+                </div>
+                <div>
+                  <span>Total Interest</span>
+                  <strong id="totalInterest">₹0</strong>
+                </div>
+                <div>
+                  <span>Total Payment</span>
+                  <strong id="totalPayment">₹0</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners" aria-labelledby="partners-title">
+        <div class="section-heading">
+          <h2 id="partners-title">Our Trusted Partners</h2>
+          <p>Partnering with India's leading financial institutions to deliver exceptional services</p>
+        </div>
+        <div class="logo-marquee">
+          <div class="logo-track">
+            <img src="assets/providers/indusind-bank.png" alt="IndusInd Bank" />
+            <img src="assets/providers/boi-bank.png" alt="Bank of India" />
+            <img src="assets/providers/kotak-mahindra-bank.png" alt="Kotak Mahindra Bank" />
+            <img src="assets/providers/federal-bank.png" alt="Federal Bank" />
+            <img src="assets/providers/hdfc-bank.png" alt="HDFC Bank" />
+            <img src="assets/providers/icici-bank.png" alt="ICICI Bank" />
+            <img src="assets/providers/sbi-bank.png" alt="SBI Bank" />
+            <img src="assets/providers/union-bank.png" alt="Union Bank" />
+            <img src="assets/providers/indusind-bank.png" alt="" aria-hidden="true" />
+            <img src="assets/providers/boi-bank.png" alt="" aria-hidden="true" />
+            <img src="assets/providers/kotak-mahindra-bank.png" alt="" aria-hidden="true" />
+            <img src="assets/providers/federal-bank.png" alt="" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section class="loan-section" id="products" aria-labelledby="loans-title">
+        <div class="section-heading">
+          <h2 id="loans-title">Explore Our Loan Options</h2>
+          <p>Choose from our wide range of loan products tailored to your financial needs</p>
+        </div>
+        <div class="loan-grid">
+          <article class="loan-card">
+            <img src="assets/loans/personal.jpg" alt="Personal Loan" />
+            <h3>Personal Loan</h3>
+            <p>Flexible funds for planned expenses, travel, emergencies, or life goals.</p>
+            <button class="loan-action" type="button" data-loan="Personal Loan">Apply for Personal Loan</button>
+          </article>
+          <article class="loan-card">
+            <img src="assets/loans/home.jpg" alt="Home Loan" />
+            <h3>Home Loan</h3>
+            <p>Guided mortgage support for buying, building, or refinancing a home.</p>
+            <button class="loan-action" type="button" data-loan="Home Loan">Apply for Home Loan</button>
+          </article>
+          <article class="loan-card">
+            <img src="assets/loans/business.jpg" alt="Business Loan" />
+            <h3>Business Loan</h3>
+            <p>Working capital and expansion finance for ambitious companies.</p>
+            <button class="loan-action" type="button" data-loan="Business Loan">Apply for Business Loan</button>
+          </article>
+          <article class="loan-card">
+            <img src="assets/loans/education.jpg" alt="Education Loan" />
+            <h3>Education Loan</h3>
+            <p>Study in India or abroad with transparent terms and repayment choices.</p>
+            <button class="loan-action" type="button" data-loan="Education Loan">Apply for Education Loan</button>
+          </article>
+          <article class="loan-card">
+            <img src="assets/loans/car.jpg" alt="Car Loan" />
+            <h3>Car Loan</h3>
+            <p>Quick vehicle finance with minimal documentation and competitive rates.</p>
+            <button class="loan-action" type="button" data-loan="Car Loan">Apply for Car Loan</button>
+          </article>
+          <article class="loan-card">
+            <img src="assets/loans/gold.jpg" alt="Gold Loan" />
+            <h3>Gold Loan</h3>
+            <p>Unlock short-term liquidity against your gold with fast processing.</p>
+            <button class="loan-action" type="button" data-loan="Gold Loan">Apply for Gold Loan</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="choice-section" id="about">
+        <div class="section-heading">
+          <h2>Why Choose Vista Financial Group?</h2>
+          <p>We provide financial solutions that are tailored to your unique needs</p>
+        </div>
+        <div class="feature-row">
+          <article>
+            <i data-lucide="headphones"></i>
+            <h3>24/7 Support</h3>
+            <p>We're always here for you. Whether it's a query or support with claims, our team is just a call or message away, anytime.</p>
+          </article>
+          <article>
+            <i data-lucide="calculator"></i>
+            <h3>Quick Quotations</h3>
+            <p>Discover the best loan plans for you. Compare premiums and get accurate quotations in just a few clicks.</p>
+          </article>
+          <article>
+            <i data-lucide="badge-check"></i>
+            <h3>Instant Policy Approval</h3>
+            <p>Why wait? Get your loan approved in just 5 minutes. Quick, easy, and hassle-free.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="services" id="quick-loan">
+        <div class="section-heading">
+          <h2>Why Choose Our Loan Services?</h2>
+          <p>Competitive rates, transparent terms, and exceptional service from application to disbursal.</p>
+        </div>
+        <div class="service-grid">
+          <article><span>⚡</span><h3>Fast Approval</h3><p>Get loan approval within 24 hours</p></article>
+          <article><span>₹</span><h3>Low Interest Rates</h3><p>Competitive rates starting from 8.5%</p></article>
+          <article><span>↻</span><h3>Flexible Repayment</h3><p>Customized repayment plans</p></article>
+          <article><span>🔍</span><h3>No Hidden Fees</h3><p>Transparent pricing with no surprises</p></article>
+        </div>
+        <form class="quick-loan-form" id="quickLoanForm">
+          <div class="form-heading">
+            <p class="eyebrow">Quick Loan</p>
+            <h3>Start your loan request</h3>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>Full Name</span>
+              <input name="name" type="text" placeholder="Enter your name" required />
+            </label>
+            <label>
+              <span>Mobile Number</span>
+              <input name="phone" type="tel" placeholder="+91 98765 43210" required />
+            </label>
+            <label>
+              <span>Loan Type</span>
+              <select name="loanType" id="loanType" required>
+                <option value="">Select loan type</option>
+                <option>Personal Loan</option>
+                <option>Home Loan</option>
+                <option>Business Loan</option>
+                <option>Education Loan</option>
+                <option>Car Loan</option>
+                <option>Gold Loan</option>
+              </select>
+            </label>
+            <label>
+              <span>Loan Amount</span>
+              <input name="amount" type="number" min="50000" placeholder="500000" required />
+            </label>
+          </div>
+          <button class="btn primary" type="submit">Submit Request</button>
+          <p class="form-status" id="quickLoanStatus" role="status"></p>
+        </form>
+      </section>
+
+      <section class="testimonials">
+        <div class="section-heading">
+          <h2>Clients Speak</h2>
+          <p>Our Legacy</p>
+        </div>
+        <div class="testimonial-grid">
+          <blockquote>
+            <p>Vista Financial Group made my home loan process incredibly smooth! I got approved in just 48 hours with the best interest rate in the market.</p>
+            <cite>Rahul Jori</cite>
+          </blockquote>
+          <blockquote>
+            <p>I was struggling to get a business loan until I found Vista Financial Group. Their personalized approach and fast processing helped expand my business.</p>
+            <cite>Neha Verma</cite>
+          </blockquote>
+          <blockquote>
+            <p>Amazing service! I got my car loan approved with minimal documentation and the most competitive rates available.</p>
+            <cite>Amit Gupta</cite>
+          </blockquote>
+          <blockquote>
+            <p>Vista Financial Group's education loan helped fulfill my daughter's dream of studying abroad. Transparent terms and flexible repayment options.</p>
+            <cite>Priya Singh</cite>
+          </blockquote>
+          <blockquote>
+            <p>The personal loan process was so quick and hassle-free. Vista Financial Group truly understands customer needs.</p>
+            <cite>Rajesh Kumar</cite>
+          </blockquote>
+          <blockquote>
+            <p>Excellent service for my gold loan. Fast approval and competitive interest rates. Highly recommended!</p>
+            <cite>Sneha Patel</cite>
+          </blockquote>
+        </div>
+        <a class="btn primary centered" href="#contact">Share Your Experience</a>
+      </section>
+
+      <section class="faq-section" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <h2 id="faq-title">Frequently Asked Questions</h2>
+          <p>Helpful answers before you apply for a loan.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>How fast can I get loan approval?</summary>
+            <p>Most eligible applications can receive approval within 24 to 48 hours after document verification.</p>
+          </details>
+          <details>
+            <summary>Which documents are usually required?</summary>
+            <p>Identity proof, address proof, income proof, bank statements, and product-specific documents are commonly required.</p>
+          </details>
+          <details>
+            <summary>Can I compare offers from multiple banks?</summary>
+            <p>Yes. Vista Financial Group helps compare suitable options from trusted financial partners based on your profile.</p>
+          </details>
+          <details>
+            <summary>Are there hidden charges?</summary>
+            <p>The process is kept transparent. Applicable fees, interest, and repayment terms are explained before you proceed.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="achievements">
+        <div>
+          <p class="eyebrow">Our</p>
+          <h2>Achievements</h2>
+          <p>Trusted by thousands of customers for their financial needs.</p>
+        </div>
+        <div class="stats-grid">
+          <article><strong>6+</strong><span>Loan Options</span><small>Diverse loan products</small></article>
+          <article><strong>2K+</strong><span>Happy Customers</span><small>Trusted by families</small></article>
+          <article><strong>95%</strong><span>Success Rate</span><small>Approval success</small></article>
+          <article><strong>4.8</strong><span>Customer Rating</span><small>Out of 5 stars</small></article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact Us</p>
+          <h2 id="contact-title">Talk to a loan expert.</h2>
+          <p>Share your requirement and the Vista Financial Group team will help you with the next step.</p>
+          <div class="contact-cards">
+            <span><i data-lucide="building-2"></i>Vista Financial Group</span>
+            <span><i data-lucide="map-pin"></i>Sadguru Apartment, Opposite Konark Heights, Near Paradise Hotel, Birla College Road, Kalyan, Maharashtra - 421301</span>
+            <a href="tel:+917400147053"><i data-lucide="phone"></i>+91 74001 47053</a>
+            <a href="https://wa.me/917400147053?text=Hello%20Vista%20Financial%20Group,%0AI%20would%20like%20to%20know%20more%20about%20your%20financial%20services."><i data-lucide="message-circle"></i>+91 74001 47053</a>
+            <a href="mailto:vistafinancialgroup@gmail.com"><i data-lucide="mail"></i>vistafinancialgroup@gmail.com</a>
+            <span><i data-lucide="clock"></i>10 am to 7pm</span>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <label>
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="form-status" id="contactStatus" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <div class="floating-actions" aria-label="Quick contact actions">
+      <a class="floating-button floating-call" href="tel:+917400147053" aria-label="Call Now" data-tooltip="Call Now">
+        <i data-lucide="phone-call"></i>
+      </a>
+      <a class="floating-button floating-whatsapp" href="https://wa.me/917400147053?text=Hello%20Vista%20Financial%20Group,%0AI%20would%20like%20to%20know%20more%20about%20your%20financial%20services." aria-label="Chat on WhatsApp" data-tooltip="Chat on WhatsApp">
+        <i data-lucide="message-circle"></i>
+      </a>
+    </div>
+
+    <footer class="site-footer" id="footer-contact">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="#home"><img src="assets/vista-company-logo.jpeg" alt="Vista Financial Group logo" /></a>
+          <p>Empowering individuals and businesses with flexible loan solutions.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/share/r/1AdzMc8BCZ/?mibextid=wwXIfr" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+        <div>
+          <h3>Our Products</h3>
+          <a href="#products">Personal Loan</a>
+          <a href="#products">Home Loan</a>
+          <a href="#products">Business Loan</a>
+          <a href="#products">Education Loan</a>
+          <a href="#products">Vehicle Loan</a>
+        </div>
+        <div>
+          <h3>Contact Info</h3>
+          <p><i data-lucide="building-2"></i>Vista Financial Group</p>
+          <p><i data-lucide="map-pin"></i>Sadguru Apartment, Opposite Konark Heights, Near Paradise Hotel, Birla College Road, Kalyan, Maharashtra - 421301</p>
+          <p><i data-lucide="phone"></i>+91 74001 47053</p>
+          <p><i data-lucide="message-circle"></i>+91 74001 47053</p>
+          <p><i data-lucide="mail"></i>vistafinancialgroup@gmail.com</p>
+          <p><i data-lucide="clock"></i>10 am to 7pm</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Trusted financial guidance for loans, planning, and smarter money decisions.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<svg width="720" height="460" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="460" rx="28" fill="#0F172A"/>
+  <circle cx="360" cy="165" r="86" fill="#DBEAFE" stroke="#60A5FA" stroke-width="10"/>
+  <path d="M300 125L350 220L420 125" stroke="#1D4ED8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M430 125H382C360 125 346 137 346 156C346 176 360 188 384 188H414" stroke="#0E7490" stroke-width="18" stroke-linecap="round"/>
+  <text x="360" y="300" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">Vista Financial Group</text>
+  <text x="360" y="345" text-anchor="middle" fill="#93C5FD" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="4">SMART LOAN SOLUTIONS</text>
+</svg>
